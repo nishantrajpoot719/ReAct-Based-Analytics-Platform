@@ -889,7 +889,7 @@ if __name__ == "__main__":
             latest_date_in_data = df["created_date"].max()
             if pd.notna(latest_date_in_data) and today_date > latest_date_in_data:
                 api_key = _google_api_key()
-                api_key = "AIzaSyBwV6BFt6mjYEdYd5BI-sFyFmxdLtvniCA"
+                
                 if not api_key:
                     st.error("Missing GOOGLE_API_KEY for Google Drive access.")
                 else:
@@ -1119,3 +1119,4 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
