@@ -879,11 +879,11 @@ if __name__ == "__main__":
     initial_sidebar_state="expanded",
     )
     st.markdown(build_page_style(palette, base_theme), unsafe_allow_html=True)
-    logo_path = "C:\\Users\\cd-user\\Downloads\\Frame 6.png"
+    logo_path = "Frame 6.png"
     if os.path.exists(logo_path):
         st.image(logo_path, width=220)
     st.markdown(
-        "<div class='dashboard-title'>ONE-A-EYE</div>",
+        "<div class='dashboard-title'>Customer Support Ticket Analytics</div>",
         unsafe_allow_html=True,
     )
     st.markdown("##### AI-powered analytics over customer support data")
@@ -1147,6 +1147,7 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
 
 
