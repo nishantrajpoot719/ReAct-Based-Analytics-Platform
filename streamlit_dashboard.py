@@ -30,8 +30,8 @@ try:
 except ImportError:
     st_theme = None
 
-DATA_URL = "https://docs.google.com/spreadsheets/d/1MSYdK-Z4qjgudUI6Ky3t3U-Qc2Dxx95D/export?format=csv"
-FOLDER_ID = "1uxnGomO1D2oJShW67c43GeobVbE1TLKZ"
+DATA_URL = st.secrets.get("DATA_URL")
+FOLDER_ID = st.secrets.get("FOLDER_ID")
 
 LOG_DIR = Path(__file__).resolve().parent / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -1147,6 +1147,7 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
 
 
