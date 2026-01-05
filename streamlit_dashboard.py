@@ -6,13 +6,9 @@ import os
 import json
 import logging
 from pathlib import Path
-import chromadb
 from collections import defaultdict
 from itertools import zip_longest
 from contextlib import nullcontext
-from sklearn.decomposition import PCA
-from sentence_transformers import SentenceTransformer
-import gdown
 import zipfile
 import datetime
 import plotly.express as px
@@ -1119,4 +1115,5 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
