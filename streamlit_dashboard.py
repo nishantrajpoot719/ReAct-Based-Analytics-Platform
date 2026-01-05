@@ -198,8 +198,24 @@ THEME_COLORS = {
 
 def convert_filtered_df_to_excel(df):
     output = io.BytesIO()
-    with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
+
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
         df.to_excel(writer, index=False, sheet_name="Filtered_Tickets")
+
+        # Access workbook + sheet
+        ws = writer.book["Filtered_Tickets"]
+
+        # Auto-adjust column width (important for usability)
+        for column_cells in ws.columns:
+            length = max(len(str(cell.value)) if cell.value else 0 for cell in column_cells)
+            ws.column_dimensions[column_cells[0].column_letter].width = min(length + 3, 40)
+
+        # Freeze header row
+        ws.freeze_panes = "A2"
+
+        # Turn on filters
+        ws.auto_filter.ref = ws.dimensions
+
     return output.getvalue()
 
 
@@ -1131,6 +1147,7 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
 
 
