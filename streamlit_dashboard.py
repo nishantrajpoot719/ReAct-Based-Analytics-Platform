@@ -1142,11 +1142,12 @@ if __name__ == "__main__":
             We deliberately kept the some tickets out of the analysis to ensure that insights are drawn from relevant tickets only.
             The excluded tickets are which request for stopping the service ("because they subscribed and service was not available to their location") and internal tickets which are raised by the Customer Support Team to communicate among themselves.
 
-            For any questions or feedback, please contact [Lakshay Dagar](mailto:lakshaydagar@countrydelight.in) or [Nishant Rajpoot](mailto:nishantrajpoot@countrydelight.in).
+            For any questions or feedback, please contact [Nishant Rajpoot](mailto:nishantrajpoot@countrydelight.in).
             """)
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
 
 
