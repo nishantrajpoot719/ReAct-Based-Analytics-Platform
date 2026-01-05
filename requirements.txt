@@ -2,3 +2,7 @@ dspy
 agno
 openpyxl
 chromadb
+scikit-learn
+pandas
+numpy
+plotly
