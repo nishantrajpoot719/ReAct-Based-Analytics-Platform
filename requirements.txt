@@ -1,9 +1,9 @@
 dspy
 agno
 openpyxl
-chromadb
 scikit-learn
+streamlit-theme
 pandas
 numpy
 plotly
-sentence-transformers
+
