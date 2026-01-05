@@ -707,11 +707,11 @@ def main_agent_run(stream_area=None, conversation_placeholder=None, live_updates
     try:
         with dspy.context(
             lm=dspy.LM(
-                model="openai/gpt-5",
-                api_key= "{CEREBRAS_API_KEY}",
+                model="openai/gpt-oss-120b",
+                api_key= cerebras_key,
                 temperature=1, 
                 max_tokens= 32000,
-                #api_base="https://api.cerebras.ai/v1",
+                api_base="https://api.cerebras.ai/v1",
         )):
             for chunk in stream_main_agent(
                 user_query=query,
@@ -1147,6 +1147,7 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
 
 
