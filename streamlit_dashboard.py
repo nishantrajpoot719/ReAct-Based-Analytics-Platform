@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import dspy
+import io
 from typing import List, Optional, Any, Dict, Tuple, Set
 import os
 import json
@@ -194,6 +195,13 @@ THEME_COLORS = {
         "divider": "rgba(148, 163, 184, 0.25)",
     },
 }
+
+def convert_filtered_df_to_excel(df):
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
+        df.to_excel(writer, index=False, sheet_name="Filtered_Tickets")
+    return output.getvalue()
+
 
 def detect_base_theme() -> str:
     """Return 'dark' or 'light' depending on the current browser theme."""
@@ -1077,6 +1085,14 @@ if __name__ == "__main__":
                 st.info("Try broadening the filters to explore more tickets.")
             else:
                 st.dataframe(filtered_df, width = 'content')
+            excel_data = convert_filtered_df_to_excel(filtered_df)
+
+            st.download_button(
+                label="Download Filtered Data",
+                data=excel_data,
+                file_name="filtered_data.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                )
 
 
         with st.expander("Summarise Filtered Tickets"):
@@ -1115,5 +1131,6 @@ if __name__ == "__main__":
         st.divider()
         st.write("© 2025 Country Delight")
         st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
+
 
 
